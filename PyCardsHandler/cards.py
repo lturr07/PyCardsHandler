@@ -1,6 +1,11 @@
 """Card Handler"""
 from typing import Optional, Any, Union
 
+if __name__ == "__main__":
+    from logging import logs, log
+    import sys
+    log(logs.log_fail, "This is a module, do not run directly")
+    sys.exit()
 
 class Suit():
     Wildcard = 0
@@ -109,7 +114,3 @@ def _get_card_name(rank: int, suit: int = 0) -> str:
         return _rank_info[rank]
     else:
         return _rank_info[rank] + " of " + _suit_info[suit]
-    
-if __name__ == "__main__":
-    from PyCardsHandler.logging import logs, log
-    log(logs.log_fail, "This is a module, do not run directly")
