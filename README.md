@@ -1,5 +1,2 @@
 # PyCardsHandler
-
-### TODO
-* Add type checking to all methods
-* add more methods
+A simple python card and deck handler which makes it easy to make card games
