@@ -4,10 +4,14 @@ from PyCardsHandler import *
 deck = Deck()
 
 # init selectors
-selector = CardSelector.Rank(Rank.Joker)
+ace_selector = Selector.Rank(Rank.Ace)
+hearts_selector = Selector.Suit(Suit.Hearts)
+
+# combine selectors
+selector = Selector.Both(ace_selector, hearts_selector)
 
 # get probability using combined selectors
-prob = deck.probability(selector)  # will return 0. as there are no jokers in the deck
+prob = deck.probability(selector)
 
 # print probability as percentage
-print(f"Probability of getting Joker: {round(prob*100, 2)}%")
+print(f"Probability of getting Ace of Hearts: {round(prob*100, 2)}%")

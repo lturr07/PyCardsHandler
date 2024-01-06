@@ -1,5 +1,4 @@
 """Card Handler"""
-from typing import Optional, Any, Union
 
 if __name__ == "__main__":
     from logging import logs, log
@@ -7,19 +6,22 @@ if __name__ == "__main__":
     log(logs.log_fail, "This is a module, do not run directly")
     sys.exit()
 
+from typing import Optional, Any, Union
+from PyCardsHandler.cardsSelector import Selector
+
 class Suit():
     Wildcard = 0
-    Hearts = 1
+    Clubs = 1
     Diamonds = 2
-    Clubs = 3
+    Hearts = 3
     Spades = 4
 
 _suit_info = \
 [
     "Wildcard",
-    "Hearts",
-    "Diamonds",
     "Clubs",
+    "Diamonds",
+    "Hearts",
     "Spades"
 ]
 
@@ -54,17 +56,16 @@ _rank_info = \
     "Ten",
     "Jack",
     "Queen",
-    "King",
-    "Joker"
+    "King"
 ]
 
 
 class Card():
-    def __init__(self, rank: int, suit: int = 0, attributes: Optional[dict] = None):
+    def __init__(self, rank: int, suit: int, attributes: Optional[dict] = None):
         _validate_card(rank, suit)
         self._r: int = rank
         self._s: int = suit
-        self._a: Optional[dict] = dict() if attributes is None else attributes
+        self._a: dict = dict() if attributes is None else attributes
 
     def set_attributes(self, **attributes) -> None:
         self._a.update(attributes)
@@ -76,21 +77,34 @@ class Card():
             for key in keys:
                 del self._a[key]    
 
+    @property
+    def card_selector(self) -> Selector:
+        return (7, id(self))
+
+    @property
     def card_name(self) -> str:
         return _get_card_name(self._r, self._s)
     
+    @property
     def card_rank(self) -> str:
         return _rank_info[self._r]
 
+    @property
     def card_suit(self) -> str:
         return _suit_info[self._s]
 
+    @property
     def raw_card_rank(self) -> int:
         return self._r
 
+    @property
     def raw_card_suit(self) -> int:
         return self._s
-    
+
+    @property
+    def raw_attributes(self) -> dict:
+        return self._a
+
     def get_attributes(self, *keys) -> Union[Union[Any, list[Any]], dict]:
         if keys == ():
             return self._a
@@ -99,6 +113,12 @@ class Card():
             for key in keys:
                 attribs.append(self._a[key])
             return attribs[0] if len(attribs) == 1 else attribs
+        
+    def __str__(self) -> str:
+        return self.card_name
+    
+    def __int__(self) -> int:
+        return self._r
     
 def _validate_card(rank: int, suit: int) -> bool:
     if not (suit >= 0 and suit <= 4):
@@ -109,7 +129,6 @@ def _validate_card(rank: int, suit: int) -> bool:
         raise Exception(f"If suit or rank are zero both have to be zero")
     
 def _get_card_name(rank: int, suit: int = 0) -> str:
-    # _validate_card(rank, suit)
     if suit == 0 and rank == 0:
         return _rank_info[rank]
     else:

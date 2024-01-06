@@ -1,17 +1,15 @@
 from PyCardsHandler import *
 
 # init deck
-deck = Deck()
+deck = Deck(jokers = 2)
+# try adding more jokers and seeing what new percentages you get
 
 # init selectors
-ace_selector = CardSelector.Rank(Rank.Ace)
-hearts_selector = CardSelector.Suit(Suit.Hearts)
-
-# combine selectors
-selector = CardSelector.Both(ace_selector, hearts_selector)
+selector = Selector.Rank(Rank.Joker)
 
 # get probability using combined selectors
 prob = deck.probability(selector)
 
 # print probability as percentage
-print(f"Probability of getting Ace of Hearts: {round(prob*100, 2)}%")
+print(f"Probability of getting Joker: {round(prob*100, 2)}%")
+
