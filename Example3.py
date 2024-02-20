@@ -1,6 +1,6 @@
 from PyCardsHandler import *
 
-hand = Deck(ranks=0, suits=0)
+hand = DeckEmpty()
 pile = Deck(jokers=2)
 
 is_hearts = Selector.Suit(Suit.Hearts)
