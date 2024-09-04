@@ -1,42 +1,17 @@
 # PyCardsHandler
 A simple python card and deck handler which makes it easy to make card games
 
-Example 1 Showcases:
-* Deck -> Init -> Jokers
-* Deck -> Probability
-* Selector -> Rank
+## Example 1:
+Creates a deck with 2 jokers and finds the probability of dealing a joker.
 
-Example 2 Showcases:
-* Deck -> Init
-* Deck -> Probability
-* Selector -> Rank
-* Selector -> Suit
-* Selector -> Both
+## Example 2:
+Creates a deck and finds the probability of dealing the Ace of Hearts.
 
-Example 3 Showcases:
-* DeckEmpty -> Init
-* Deck -> Init -> Jokers
-* Deck -> Get Cards
-* Deck -> Probability
-* Selector -> Suit
-* Selector -> Not
-* Selector -> Rank
-* Selector -> Both
+## Example 3:
+Creates a deck with 2 jokers and gets all Ace cards that are not of the Hearts suit and finds the probability of getting these cards.
 
-Example 4 Showcases:
-* DeckEmpty -> Init
-* Deck -> Add Cards
-* Deck -> Get Cards
-* Card -> Init -> Rank
-* Card -> Init -> Suit
-* Card -> Init -> Attribute
-* Card -> Card Selector
-* Card -> Get Attributes
-* Selector -> Rank
+## Example 4:
+Creates empty deck and creates 2 joker cards with unique attributes and retrieves a unique selector for each of these jokers, then gets a selector for all jokers, then adds these 2 made jokers into the empty deck and then gets them using their unique selectors and the joker selector.
 
-Example 5 Showcases:
-* DeckEmpty -> Init
-* Deck -> Init -> Start Shuffled
-* Deck -> Add Cards
-* Deck -> Deal Cards
-* Selector -> Range
+## Example 5:
+Creates 4 hands (empty decks) and a deck that starts shuffled, then creates selector for a certain range of cards and then deals this range of cards to each hand

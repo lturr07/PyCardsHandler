@@ -20,6 +20,6 @@ found_all_jokers = deck.get_cards(all_jokers_selector)
 def format_cards(cards: list[Card]) -> str:
     return [x.get_attributes("name") for x in cards]
 
-print("\njoker1_selector found:\t\t", format_cards(found_joker1))
-print("joker2_selector found:\t\t", format_cards(found_joker2))
-print("all_jokers_selector found:\t", format_cards(found_all_jokers), "\n")
+print("\njoker1_selector found card with attribute: ", format_cards(found_joker1))
+print("joker2_selector found card with attribute: ", format_cards(found_joker2))
+print("all_jokers_selector found cards with attributes: ", format_cards(found_all_jokers), "\n")

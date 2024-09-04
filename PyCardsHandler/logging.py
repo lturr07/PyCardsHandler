@@ -1,3 +1,5 @@
+# ⌠ʘ_ʘ⌡δ⌡ #
+
 class logs():
     log_start = 0
     log_end = 1

@@ -7,7 +7,7 @@ deck = Deck(jokers = 2)
 # init selectors
 selector = Selector.Rank(Rank.Joker)
 
-# get probability using combined selectors
+# get probability using selector
 prob = deck.probability(selector)
 
 # print probability as percentage
